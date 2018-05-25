@@ -1,7 +1,9 @@
+import * as _ from 'lodash';
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Card, Text, ListItem } from 'react-native-elements';
 import ParticleBar from '../atoms/ParticleBar';
+import { WeatherIcon } from '../../config/Images';
 
 const WeatherCard = ({ city, temperature, humidity, pm10, pm25, pm100 }) => {
   const pmItems = [
@@ -22,7 +24,7 @@ const WeatherCard = ({ city, temperature, humidity, pm10, pm25, pm100 }) => {
   return (
     <Card
       title={city}
-      image={require('../../assets/images/happy.png')}
+      image={WeatherIcon[_.sample(Object.keys(WeatherIcon))]}
       imageProps={{ resizeMode: 'contain' }}
       containerStyle={styles.cardContainer}
     >

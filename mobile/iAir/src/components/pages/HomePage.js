@@ -4,12 +4,13 @@ import Swiper from 'react-native-swiper';
 import Spinner from 'react-native-loading-spinner-overlay';
 
 import WeatherCard from '../molecules/WeatherCard';
+import { WeatherBackground } from '../../config/Images';
 
 const HomePage = ({ items, loading, error }) => {
   if (loading) {
     return (
         <ImageBackground
-          source={require('../../assets/images/background.jpg')}
+          source={WeatherBackground.cloud}
           style={styles.container}
         >
           <Spinner visible={loading} textContent={"Ładowanie danych"} textStyle={{color: '#FFF'}} />
@@ -33,7 +34,7 @@ const HomePage = ({ items, loading, error }) => {
             style={styles.slide}
           >
             <ImageBackground
-              source={require('../../assets/images/background.jpg')}
+              source={WeatherBackground.cloud}
               style={styles.container}
             >
               <WeatherCard
