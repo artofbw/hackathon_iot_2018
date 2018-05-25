@@ -17,13 +17,16 @@ const GET_PAYLOADS = gql`
 class HomeScreen extends React.Component {
   render() {
     return (
-      <Query query={GET_PAYLOADS}>
-        {({ loading, error, data }) => {
+      <Query
+        query={GET_PAYLOADS}
+        pollInterval={1000 * 10}
+      >
+        {({ loading, error, data, refetch }) => {
           return (
             <HomePage
               items={data}
               loading={loading}
-              error={error}
+              onRefresh={refetch}
             />
           );
         }}
