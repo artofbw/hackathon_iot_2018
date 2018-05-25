@@ -9,7 +9,7 @@ const HomePage = ({ temperature, humidity, pm10, pm25, pm100 }) => {
       style={styles.container}
     >
       <WeatherCard
-        cityName="Gdańsk"
+        city="Gdańsk"
         temperature={temperature}
         humidity={humidity}
         pm10={pm10}
