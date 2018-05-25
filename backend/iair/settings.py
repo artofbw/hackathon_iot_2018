@@ -25,7 +25,7 @@ SECRET_KEY = '!dx=e5^#m$ng_sxm-ld8vs@9as4dp&^!3-b^m7etbrzn3)e3(^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['10.93.10.144']
 
 
 # Application definition
@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'graphene_django',
+    'data',
 ]
 
 
@@ -124,3 +126,12 @@ STATIC_URL = '/static/'
 GRAPHENE = {
     'SCHEMA': 'iair.schema.schema' # Where your Graphene schema lives
 }
+
+MIDDLEWARE_CLASSES = (
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.BrokenLinkEmailsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    ...
+)
+
+CORS_ORIGIN_ALLOW_ALL = True
